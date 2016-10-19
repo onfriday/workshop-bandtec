@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkshopBandtecApp.Pages.Musicas.MusicasPage"
+             Title="{Binding Title}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem
+      Icon="ic_add.png"
+      Order="Primary"
+      Priority="0"
+      Command="{Binding NovoCommand}" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand">
+      <ListView
+        ItemsSource="{Binding Items}"
+        ItemTapped="Handle_ItemTapped"
+        ItemSelected="Handle_ItemSelected"
+        HasUnevenRows="True"
+        SelectedItem="{Binding Selected}"
+        RefreshCommand="{Binding RefreshCommand}"
+        IsRefreshing="{Binding IsBusy}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding Nome}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
